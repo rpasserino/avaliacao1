@@ -41,17 +41,16 @@ public class Complexo {
     }
 
     public Complexo prod(Complexo c){
-        return new Complexo(real*c.real - img*c.img, img - c.img);
+        return new Complexo(real*(c.real) - img*(c.img), img - c.img);
     }
     
     public  Complexo div(Complexo c){
-        return new Complexo((real*c.real+img*c.img)/(c.real*c.real+c.img*c.img),(c.real*img-real*c.img)/(c.real*c.real+c.img*c.img));
+        return new Complexo((real*(c.real)+img*(c.img))/((c.real)*(c.real)+(c.img)*(c.img)),((c.real)*img-real*(c.img))/((c.real)*(c.real)+(c.img)*(c.img)));
     }
     
-    // implementar sqrt()
     public Complexo[] sqrt() {
         Complexo[] raiz = new Complexo[2];
-        double r1,r2,rd=0, p=(Math.sqrt(real*real+img*img));
+        double r1,r2,rd=0, p=Math.sqrt(Math.sqrt(real*real + img*img));
         if(real>0)
             rd=Math.atan(img/real);
         else if(real<0)
@@ -63,7 +62,7 @@ public class Complexo {
         else if(real==0 && img<0)
             rd=3*Math.PI/2;
         r1=rd/2;
-        r2=rd/2+Math.PI;
+        r2=rd/2 + Math.PI;
         raiz[0] = new Complexo(p*Math.cos(r1), p*Math.sin(r1));
         raiz[1] = new Complexo(p*Math.cos(r2), p*Math.sin(r2));
         return raiz;

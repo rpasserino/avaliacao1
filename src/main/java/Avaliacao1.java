@@ -12,29 +12,33 @@ import utfpr.ct.dainf.if62c.avaliacao.Complexo;
 public class Avaliacao1 {
 
     public static void main(String[] args) {
-        Complexo[] raizesX = new Complexo[2];
-        Complexo[] raizesY = new Complexo[2];
+        Complexo[] raizX = new Complexo[2];
+        Complexo[] raizY = new Complexo[2];
+        
         Complexo ax = new Complexo(1, 0);
         Complexo bx = new Complexo(5, 0);
         Complexo cx = new Complexo(4, 0);
         Complexo ay = new Complexo(1, 0);
         Complexo by = new Complexo(2, 0);
         Complexo cy = new Complexo(5, 0);
-        raizesX = raizesEquacao(ax, bx, cx);
-        raizesY = raizesEquacao(ay, by, cy);
-        System.out.println("x1=" + raizesX[0]);
-        System.out.println("x2=" + raizesX[1]);
-        System.out.println("y1=" + raizesY[0]);
-        System.out.println("y2=" + raizesY[1]);
-
+        
+        raizX = raizesEquacao(ax, bx, cx);
+        raizY = raizesEquacao(ay, by, cy);
+        
+        System.out.println("x1=" + raizX[0]);
+        System.out.println("x2=" + raizX[1]);
+        System.out.println("y1=" + raizY[0]);
+        System.out.println("y2=" + raizY[1]);
     }
     
     public static Complexo[] raizesEquacao(Complexo a, Complexo b, Complexo c){
-        Complexo[] result = new Complexo[2];
+        Complexo[] result = new Complexo[2];        
         Complexo delta = (b.prod(b)).sub((a.prod(c)).prod(4));
-        Complexo[] raizesDelta = delta.sqrt();
-        result[0] = (raizesDelta[0].sub(b)).div(a.prod(2));
-        result[1] = (raizesDelta[1].sub(b)).div(a.prod(2));
+        Complexo[] raizDelta = delta.sqrt();
+        
+        result[0] = (raizDelta[0].sub(b)).div(a.prod(2));
+        result[1] = (raizDelta[1].sub(b)).div(a.prod(2));
+        
         return result;
     }
     
